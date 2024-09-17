@@ -1,0 +1,46 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  .logo-links-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    .logo {
+      font-size: 40px;
+      margin-left: 10px;
+      text-decoration: none;
+      color: black;
+    }
+    .links-container {
+      width: 100%;
+      display: flex;
+      gap: 50px;
+      list-style: none;
+      font-size: 20px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: black;
+    }
+    @media (max-width: 630px) {
+      .links-container {
+        display: none;
+      }
+    }
+  }
+  .icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .bars-icon,
+    .cart-icon {
+      width: 25px;
+      margin-right: 10px;
+    }
+    .bars-icon {
+      display: none;
+    }
+  }
+}
