@@ -35,10 +35,11 @@
     width: 170px;
     font-size: 15px;
     padding: 15px;
+    cursor: pointer;
   }
 
-  @media(max-width:207px){
-    button{
+  @media (max-width: 207px) {
+    button {
       width: auto;
     }
   }
