@@ -23,7 +23,7 @@
       font-weight: lighter;
       padding: 10px;
       position: absolute;
-      top: 500px;
+      top: 470px;
     }
   }
 
@@ -53,7 +53,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .hero {
     flex-direction: column;
 
