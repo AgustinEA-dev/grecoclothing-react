@@ -1,12 +1,12 @@
 .shop-container {
   display: flex;
   flex-direction: column;
-  margin: 20px 150px;
+  margin: 100px 150px;
 }
 
 @media (max-width: 1400px) {
   .shop-container {
-    margin: 20px 50px;
+    margin: 100px 50px;
   }
 }
 
