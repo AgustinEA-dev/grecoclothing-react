@@ -4,17 +4,16 @@
   margin-bottom: 30px;
   text-align: center;
 
-  .category-link {
-    color: black;
+  .title {
     font-size: 28px;
+    margin-bottom: 25px;
     cursor: pointer;
   }
 
   .preview {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding-top: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 }
