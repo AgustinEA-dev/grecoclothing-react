@@ -1,5 +1,7 @@
 import { ReactComponent as WavySeparator } from "../../assets/wave.svg";
 
+import Footer from "../../components/footer/footer.component";
+
 import "./about.styles.scss";
 
 const About = () => {
@@ -17,7 +19,8 @@ const About = () => {
           everything you need to express your unique personality.
         </h2>
       </div>
-        <WavySeparator className="wavy-separator" />
+      <WavySeparator className="wavy-separator" />
+      <Footer className="footer" />
     </div>
   );
 };

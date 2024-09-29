@@ -12,8 +12,8 @@
   background-image: url("../../assets/images/foto-about.jpg");
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 30vh;
+  width: 100%;
+  height: 40vh;
 }
 
 .main-title {
@@ -46,7 +46,6 @@
     .about-text-container {
       .about-text {
         font-size: 25px;
-        margin: 0;
         padding: 20px;
       }
     }
