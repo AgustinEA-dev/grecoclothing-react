@@ -18,18 +18,9 @@ const About = () => {
           everything you need to express your unique personality.
         </h2>
         <div className="shippings-bulk">
-          <div className="shippings-item">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odit
-          
-          </div>
-          <div className="shippings-item">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-     
-          </div>
-          <div className="shippings-item">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-       
-          </div>
+          <div className="shippings-item">Lorem</div>
+          <div className="shippings-item">Lorem</div>
+          <div className="shippings-item">Lorem</div>
         </div>
       </div>
       <WavySeparator className="wavy-separator" />
