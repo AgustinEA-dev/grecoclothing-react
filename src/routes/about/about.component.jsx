@@ -7,10 +7,9 @@ import "./about.styles.scss";
 const About = () => {
   return (
     <div className="about-container">
-      <div className="about-image-container">
-        <h2 className="main-title">ABOUT US</h2>
-      </div>
+      <div className="about-image-container"></div>
       <div className="about-text-container">
+        <h2 className="main-title">ABOUT US</h2>
         <h2 className="about-text">
           Step into the world of Greco, where style meets individuality. Our
           store is a haven for trendsetters and street style enthusiasts,
@@ -18,6 +17,20 @@ const About = () => {
           tees and oversized hoodies to stylish joggers and accessories, we have
           everything you need to express your unique personality.
         </h2>
+        <div className="shippings-bulk">
+          <div className="shippings-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odit
+          
+          </div>
+          <div className="shippings-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+     
+          </div>
+          <div className="shippings-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+       
+          </div>
+        </div>
       </div>
       <WavySeparator className="wavy-separator" />
       <Footer className="footer" />
