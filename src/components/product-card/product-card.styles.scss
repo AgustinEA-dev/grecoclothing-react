@@ -42,11 +42,22 @@
   }
 }
 
+@media (max-width: 1600px) {
+  .product-card-container {
+    button {
+      display: block;
+    }
+  }
+}
+
 @media (max-width: 500px) {
   .product-card-container {
     img {
       height: 80%;
-      // padding: 20px;
+    }
+    button {
+      top: 200px;
+      font-size: small;
     }
   }
 }
