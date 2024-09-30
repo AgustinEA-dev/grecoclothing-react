@@ -15,11 +15,8 @@
     display: flex;
     align-items: center;
     gap: 60px;
-    .logo {
-      font-size: 40px;
-      margin-left: 10px;
-      text-decoration: none;
-      color: black;
+    .navigation-logo {
+      width: 80px;
     }
     .links-container {
       width: 100%;

@@ -18,7 +18,7 @@ const Navigation = () => {
       <header className="navbar-container">
         <div className="logo-links-container">
           <Link className="logo" to={"/"}>
-            <span>LOGO</span>
+            <img className="navigation-logo" src="greco.png" alt="greco-logo" />
           </Link>
           <nav className="links-container">
             <Link className="nav-link" to="/about">

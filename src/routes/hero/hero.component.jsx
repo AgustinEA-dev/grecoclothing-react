@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="image-container">
-        {/* <img className="hero-image" src="foto-hero.jpg" alt="" /> */}
+        <img className="logo" src="greco-white.png" alt="" />
         <Link className="shop-link" to={"/shop"}>
           SHOP
         </Link>

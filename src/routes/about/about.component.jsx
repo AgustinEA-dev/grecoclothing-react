@@ -17,11 +17,6 @@ const About = () => {
           tees and oversized hoodies to stylish joggers and accessories, we have
           everything you need to express your unique personality.
         </h2>
-        <div className="shippings-bulk">
-          <div className="shippings-item">Lorem</div>
-          <div className="shippings-item">Lorem</div>
-          <div className="shippings-item">Lorem</div>
-        </div>
       </div>
       <WavySeparator className="wavy-separator" />
       <Footer className="footer" />
