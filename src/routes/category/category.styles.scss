@@ -1,0 +1,14 @@
+.category-container {
+  margin-top: 80px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 50px;
+}
+
+.title {
+  text-decoration: none;
+  color: black;
+}
