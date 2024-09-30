@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
   column-gap: 20px;
   row-gap: 50px;
 }
@@ -13,4 +14,3 @@
   color: black;
 }
 
-// @media(max-width: )
