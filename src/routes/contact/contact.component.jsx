@@ -1,6 +1,8 @@
+import ContactForm from "../../components/contact-form/contact-form.component";
+
 import "./contact.styles.scss";
 
 const Contact = () => {
-  return <h1>I am the contact page</h1>;
+  return <ContactForm />;
 };
 export default Contact;

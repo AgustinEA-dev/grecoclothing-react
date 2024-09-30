@@ -13,19 +13,20 @@
     background-size: cover;
 
     .logo {
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
     }
 
     .shop-link {
       text-decoration: none;
       background-color: #000000ce;
+      border-radius: 10px;
       color: #ffffff;
       font-size: 45px;
       font-weight: lighter;
       padding: 10px;
       position: absolute;
-      top: 640px;
+      top: 670px;
     }
   }
 
@@ -44,6 +45,7 @@
       text-decoration: none;
       text-align: center;
       font-size: 40px;
+      font-weight: 400;
       padding: 10px;
       color: #ffffff;
       border: 1px solid #ffffff;
