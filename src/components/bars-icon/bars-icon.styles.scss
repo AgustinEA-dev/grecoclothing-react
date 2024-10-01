@@ -1,0 +1,13 @@
+.bars-icon-container {
+  display: none;
+}
+
+.bars-icon {
+  padding-top: 8px;
+}
+
+@media (max-width: 630px) {
+  .bars-icon-container {
+    display: block;
+  }
+}
