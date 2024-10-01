@@ -20,7 +20,7 @@ const Navigation = () => {
     <>
       <header className="navbar-container">
         <div className="logo-links-container">
-          {!isMenuOpen && <MenuDropdown />}
+          {isMenuOpen  && <MenuDropdown />}
           <Link className="logo" to={"/"}>
             <img className="navigation-logo" src="greco.png" alt="greco-logo" />
           </Link>
