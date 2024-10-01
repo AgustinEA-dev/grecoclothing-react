@@ -5,9 +5,8 @@ import { Outlet, Link } from "react-router-dom";
 import { CartContext } from "../../contexts/cart.context";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
+import Bars from "../../components/bars-icon/bars-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-
-import { ReactComponent as BarsLogo } from "../../assets/bars-solid.svg";
 
 import "./navigation.styles.scss";
 
@@ -33,7 +32,7 @@ const Navigation = () => {
           </nav>
         </div>
         <div className="icons-container">
-          <BarsLogo className="bars-icon" />
+          <Bars />
           <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}
