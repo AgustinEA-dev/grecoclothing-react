@@ -63,6 +63,7 @@ const ContactForm = () => {
         <TextArea
           label="Tell us what you need"
           name="textarea"
+          type="text"
           id="message"
           isError={touched.textarea && errors.textarea}
           {...getFieldProps("textarea")}
