@@ -1,12 +1,20 @@
+import { Link } from "react-router-dom";
+
 import "./menu-dropdown.styles.scss";
 
 const MenuDropdown = () => {
   return (
     <div className="menu-dropdown-container">
       <ul className="menu-links-container">
-        <li className="menu-link">About</li>
-        <li className="menu-link">Products</li>
-        <li className="menu-link">Contact</li>
+        <Link className="menu-link" to="/about">
+          About
+        </Link>
+        <Link className="menu-link" to="/products">
+          Products
+        </Link>
+        <Link className="menu-link" to="/contact">
+          Contact
+        </Link>
       </ul>
     </div>
   );
