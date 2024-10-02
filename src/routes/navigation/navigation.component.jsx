@@ -11,7 +11,6 @@ import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component
 
 import "./navigation.styles.scss";
 
-
 const Navigation = () => {
   const { isCartOpen } = useContext(CartContext);
   return (
@@ -35,6 +34,7 @@ const Navigation = () => {
           </nav>
         </div>
         <div className="icons-container">
+          <Link className="nav-link" to="/sign-in">Sign In</Link>
           <Bars />
           <CartIcon />
         </div>

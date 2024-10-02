@@ -2,6 +2,8 @@ import { initializeApp } from "firebase/app"
 
 import { getFirestore, doc, getDocs, collection, writeBatch, query } from "firebase/firestore"
 
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+
 const firebaseConfig = {
     apiKey: "AIzaSyAMK8fsJ4ogTOZb24WsGFxyDe5F0iP44JE",
     authDomain: "integrador-3-react.firebaseapp.com",
@@ -15,6 +17,16 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 export const db = getFirestore()
+
+const provider = new GoogleAuthProvider()
+
+provider.setCustomParameters({
+    prompt: "select_account"
+})
+
+export const auth = getAuth()
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
+
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey)
