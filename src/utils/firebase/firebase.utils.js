@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 
-import { getFirestore, doc, getDocs, collection, writeBatch, query } from "firebase/firestore"
+import { getFirestore, doc, getDoc, setDoc, getDocs, collection, writeBatch, query } from "firebase/firestore"
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 
@@ -16,13 +16,24 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-export const db = getFirestore()
 
 const provider = new GoogleAuthProvider()
 
 provider.setCustomParameters({
     prompt: "select_account"
 })
+
+export const db = getFirestore()
+
+export const createUserDocumentFromAuth = async (userAuth) => {
+    const userDocRef = doc(db, "user", userAuth.uid);
+
+    console.log(userDocRef)
+
+    const userSnapshot = await getDoc(userDocRef)
+    console.log(userSnapshot.exists())
+}
+
 
 export const auth = getAuth()
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
