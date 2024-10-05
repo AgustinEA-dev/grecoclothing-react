@@ -9,7 +9,6 @@ const Button = ({ children, buttonType, onSubmit, ...otherProps }) => {
     e.preventDefault();
     onSubmit();
   };
-
   return (
     <button
       onClick={(e) => {

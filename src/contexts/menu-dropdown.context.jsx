@@ -8,9 +8,11 @@ export const MenuDropdownContext = createContext({
 export const MenuDropDownProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  
+  const toggleIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  const value = { isMenuOpen, setIsMenuOpen };
+  const value = { isMenuOpen, setIsMenuOpen, toggleIsMenuOpen };
 
   return (
     <MenuDropdownContext.Provider value={value}>

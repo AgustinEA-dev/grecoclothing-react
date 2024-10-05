@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app"
 
 import { getFirestore, doc, getDoc, setDoc, getDocs, collection, writeBatch, query } from "firebase/firestore"
 
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAMK8fsJ4ogTOZb24WsGFxyDe5F0iP44JE",
@@ -25,7 +25,12 @@ provider.setCustomParameters({
 
 export const db = getFirestore()
 
+export const auth = getAuth()
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
+
 export const createUserDocumentFromAuth = async (userAuth) => {
+    if (!userAuth) return
+
     const userDocRef = doc(db, "user", userAuth.uid);
 
     const userSnapshot = await getDoc(userDocRef)
@@ -47,10 +52,11 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     return userDocRef;
 }
 
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return
 
-export const auth = getAuth()
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
-
+    return createUserWithEmailAndPassword(auth, email, password)
+}
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey)
