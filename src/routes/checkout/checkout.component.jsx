@@ -1,5 +1,3 @@
-import { ReactComponent as WavySeparator } from "../../assets/wave.svg";
-
 import { useContext } from "react";
 
 import { CartContext } from "../../contexts/cart.context";
@@ -15,6 +13,7 @@ const Checkout = () => {
   return (
     <>
       <div className="checkout-container">
+        <h2 className="checkout-title">Complete your buy!</h2>
         {cartItems.length ? (
           <>
             {cartItems.map((cartItem) => (
@@ -26,7 +25,6 @@ const Checkout = () => {
           <h3 className="empty-message">No products yet</h3>
         )}
       </div>
-      <Footer />
     </>
   );
 };

@@ -52,6 +52,11 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
 
+  const toggleIsCarOpen = () => {
+    setIsCartOpen(!isCartOpen);
+    console.log(isCartOpen);
+  };
+
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity,
@@ -83,6 +88,7 @@ export const CartProvider = ({ children }) => {
   const value = {
     isCartOpen,
     setIsCartOpen,
+    toggleIsCarOpen,
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,

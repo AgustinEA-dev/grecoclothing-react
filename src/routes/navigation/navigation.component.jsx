@@ -2,8 +2,8 @@ import { useContext } from "react";
 
 import { Outlet, Link } from "react-router-dom";
 
-import { CartContext } from "../../contexts/cart.context";
 import { MenuDropdownContext } from "../../contexts/menu-dropdown.context";
+import { CartContext } from "../../contexts/cart.context";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import Bars from "../../components/bars-icon/bars-icon.component";
@@ -14,8 +14,8 @@ import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component
 import "./navigation.styles.scss";
 
 const Navigation = () => {
-  const { isCartOpen } = useContext(CartContext);
   const { isMenuOpen } = useContext(MenuDropdownContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <>
@@ -42,7 +42,6 @@ const Navigation = () => {
             Sign In
           </Link>
           {!isMenuOpen ? <Bars /> : <Close />}
-
           <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}

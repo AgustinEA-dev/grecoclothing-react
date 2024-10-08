@@ -7,7 +7,7 @@ import { MenuDropdownContext } from "../../contexts/menu-dropdown.context";
 import "./bars-icon.styles.scss";
 
 const Bars = () => {
-  const { isMenuOpen, toggleIsMenuOpen } = useContext(MenuDropdownContext);
+  const { toggleIsMenuOpen } = useContext(MenuDropdownContext);
 
   return (
     <div className="bars-icon-container" onClick={toggleIsMenuOpen}>
