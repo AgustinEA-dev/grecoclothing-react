@@ -8,14 +8,18 @@ import CartItem from "../cart-item/cart-item.component";
 import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
-  const { cartItems } = useContext(CartContext);
+  const { isCartOpen, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
     navigate("/checkout");
   };
   return (
-    <div className="cart-dropdown-container">
+    <div
+      className={`${
+        isCartOpen ? "cart-dropdown-container-hide" : "cart-dropdown-container"
+      }`}
+    >
       {cartItems.length ? (
         <>
           <div className="cart-items">

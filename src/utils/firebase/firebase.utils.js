@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app"
 
 import { getFirestore, doc, getDoc, setDoc, getDocs, collection, writeBatch, query } from "firebase/firestore"
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAMK8fsJ4ogTOZb24WsGFxyDe5F0iP44JE",
@@ -57,6 +57,12 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
     return createUserWithEmailAndPassword(auth, email, password)
 }
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return;
+
+    return await signInWithEmailAndPassword(auth, email, password);
+};
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey)
