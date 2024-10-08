@@ -1,10 +1,17 @@
 .checkout-container {
   width: 70%;
-  min-height: 90vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 80px auto 0;
+  margin: 120px auto 0;
+
+  .empty-message {
+    font-size: 18px;
+    color: #dcdcdc;
+    margin: 50px auto;
+  }
 
   .checkout-header {
     width: 100%;

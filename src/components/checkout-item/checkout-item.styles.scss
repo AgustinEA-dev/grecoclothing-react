@@ -20,10 +20,12 @@
     .quantity,
     .price {
       width: 23%;
+      font-size: 15px;
     }
   
     .quantity {
       display: flex;
+      align-items: center;
   
       .arrow {
         cursor: pointer;

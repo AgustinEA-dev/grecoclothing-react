@@ -78,7 +78,21 @@
       margin-top: 0;
 
       .about-link {
-        font-size: 25px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .hero {
+    .image-container {
+      .logo {
+        display: none;
+      }
+
+      .shop-link {
+        position: initial;
       }
     }
   }

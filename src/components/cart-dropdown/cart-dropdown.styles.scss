@@ -4,8 +4,9 @@
   height: 440px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 20px;
-  border: 1px solid rgb(220, 220, 220);
+  border: 1px solid #dcdcdc;
   background-color: white;
   top: 80px;
   right: 0px;
@@ -14,6 +15,7 @@
 
   .empty-message {
     font-size: 18px;
+    color: #dcdcdc;
     margin: 50px auto;
   }
 
