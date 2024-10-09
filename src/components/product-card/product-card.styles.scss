@@ -76,15 +76,11 @@
 
 @media (max-width: 320px) {
   .product-card-container {
-    width: 100px;
-    height: 100px;
-    margin: 20px 0 70px 0;
-
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
     .card-footer {
       flex-direction: column;
-      .button-container.inverted {
-        width: 100%;
-      }
     }
   }
 }

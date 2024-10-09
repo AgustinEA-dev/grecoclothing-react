@@ -6,10 +6,9 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="image-container">
-        <img className="logo" src="greco-white.png" alt="" />
-        {/* <Link className="shop-link" to={"/shop"}>
-          SHOP
-        </Link> */}
+        <Link to={"/shop"}>
+          <img className="logo" src="greco-white.png" alt="greco-white.png" />
+        </Link>
       </div>
       <div className="hero-text-container">
         <Link className="about-link" to={"/about"}>

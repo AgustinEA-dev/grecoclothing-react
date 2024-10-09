@@ -18,7 +18,11 @@ const ProductCard = ({ product }) => {
       <div className="card-footer">
         <span className="name">{name}</span>
         <span className="price">${price}</span>
-        <Button buttonType="inverted" onClick={addProductToCart}>
+        <Button
+          id="add-to-cart-button"
+          buttonType="inverted"
+          onClick={addProductToCart}
+        >
           Add to cart
         </Button>
       </div>
