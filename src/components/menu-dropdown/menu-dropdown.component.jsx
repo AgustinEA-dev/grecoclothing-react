@@ -23,7 +23,7 @@ const MenuDropdown = () => {
         <Link onClick={toggleIsMenuOpen} className="menu-link" to="/contact">
           Contact
         </Link>
-        <Link onClick={toggleIsMenuOpen} className="menu-link" to="/sign-in">
+        <Link onClick={toggleIsMenuOpen} className="menu-link" to="/auth">
           Sign in
         </Link>
       </ul>
