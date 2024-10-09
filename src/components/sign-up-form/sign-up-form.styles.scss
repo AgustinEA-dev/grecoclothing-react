@@ -1,14 +1,22 @@
 .sign-up-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 25px 0;
+  align-items: center;
+  width: 100%;
+
+  form{
+    width: 60%;
+  }
 
   h2 {
     margin: 10px 0;
   }
 
-  #signup-button {
-    margin: 20px 10px;
+  .sign-up-span {
+    padding: 15px 0;
+  }
+
+  .form-input {
+    margin: 10px;
   }
 }

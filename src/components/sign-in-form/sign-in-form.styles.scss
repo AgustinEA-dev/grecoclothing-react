@@ -1,7 +1,13 @@
-.sign-up-container {
+.sign-in-container {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  align-items: center;
+  width: 100%;
+  border-right: 1px solid black;
+
+  form {
+    width: 70%;
+  }
 
   h2 {
     margin: 10px 0;
@@ -18,8 +24,14 @@
   .buttons-container {
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 100%;
     padding: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sign-in-container {
+    border-right: none;
   }
 }
 

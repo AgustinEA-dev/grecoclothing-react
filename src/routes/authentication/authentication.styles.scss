@@ -2,9 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
   height: calc(100vh - 80px);
-  width: 80%;
   margin: 80px auto;
 }
 
@@ -12,6 +10,6 @@
   .authentication-container {
     flex-direction: column;
     gap: 30px;
-    margin-top: 120px;
+    margin-top: 80px;
   }
 }
