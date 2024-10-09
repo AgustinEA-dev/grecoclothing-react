@@ -6,6 +6,7 @@ import FormInput from "../form-input/form-input.component";
 import TextArea from "../text-area/text-area.component";
 
 import "./contact-form.styles.scss";
+import "../../animations.scss"
 
 const validationSchema = Yup.object({
   name: Yup.string().trim().required("This field es required"),

@@ -20,7 +20,7 @@
 
 @keyframes slide-right {
   from {
-    transform: translateX(500px);
+    transform: translateX(100px);
   }
 
   to {
@@ -30,7 +30,7 @@
 
 @keyframes slide-bottom {
   from {
-    transform: translateY(500px);
+    transform: translateY(300px);
   }
 
   to {
@@ -56,4 +56,24 @@
 .navbar-container {
   animation-name: slide-left;
   animation-duration: 0.4s;
+}
+
+h2,
+.sign-in-span,
+.sign-up-span,
+.about-image-container {
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+.sign-in-form,
+.sign-up-form,
+.contact-form,
+.about-text {
+  animation-name: slide-right;
+  animation-duration: 0.3s;
+}
+
+.wavy-separator {
+  animation-name: slide-bottom;
+  animation-duration: 1s;
 }

@@ -9,6 +9,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import "./sign-up-form.styles.scss";
+import "../../animations.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -60,7 +61,7 @@ const SignUpForm = () => {
     <div className="sign-up-container">
       <h2>Don't have an account?</h2>
       <span className="sign-up-span">Sign up with your email and password</span>
-      <form onSubmit={handleSubmit}>
+      <form className="sign-up-form" onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
           type="text"

@@ -9,7 +9,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../../assets/images/foto-hero-1.jpg");
+    background-image: linear-gradient(
+        rgba(27, 28, 30, 0.75),
+        rgba(16, 17, 17, 0.75)
+      ),
+      url("../../assets/images/foto-hero-1.jpg");
     background-size: cover;
 
     .logo {
@@ -37,7 +41,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url("../../assets/images/foto-hero-2.jpg");
+    background-image: linear-gradient(
+        rgba(103, 103, 103, 0.75),
+        rgba(5, 7, 12, 0.75)
+      ),
+      url("../../assets/images/foto-hero-2.jpg");
     background-size: cover;
 
     .about-link {
