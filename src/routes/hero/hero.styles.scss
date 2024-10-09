@@ -59,7 +59,7 @@
 
     .image-container {
       width: 100%;
-      height: calc(70vh - 40px);
+      height: calc(100vh - 80px);
 
       .logo {
         width: 300px;
@@ -67,14 +67,14 @@
       }
 
       .shop-link {
-        top: 440px;
+        top: 600px;
         font-size: 35px;
       }
     }
 
     .hero-text-container {
       width: 100%;
-      height: calc(30vh - 40px);
+      height: 30vh;
       margin-top: 0;
 
       .about-link {
