@@ -57,6 +57,11 @@ export const CartProvider = ({ children }) => {
     console.log(isCartOpen);
   };
 
+  const toggleIsCartOpenAndNavigateToCheckout = (func) => {
+    setIsCartOpen(!isCartOpen);
+    func();
+  };
+
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity,
@@ -89,6 +94,7 @@ export const CartProvider = ({ children }) => {
     isCartOpen,
     setIsCartOpen,
     toggleIsCarOpen,
+    toggleIsCartOpenAndNavigateToCheckout,
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,
