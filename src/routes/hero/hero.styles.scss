@@ -17,16 +17,16 @@
       height: 500px;
     }
 
-    .shop-link {
-      text-decoration: none;
-      background-color: #000000ce;
-      color: #ffffff;
-      font-size: 45px;
-      font-weight: lighter;
-      padding: 10px;
-      position: absolute;
-      top: 670px;
-    }
+    // .shop-link {
+    //   text-decoration: none;
+    //   background-color: #000000ce;
+    //   color: #ffffff;
+    //   font-size: 45px;
+    //   font-weight: lighter;
+    //   padding: 10px;
+    //   position: absolute;
+    //   top: 670px;
+    // }
   }
 
   .hero-text-container {
@@ -64,6 +64,8 @@
       .logo {
         width: 300px;
         height: 300px;
+        position: relative;
+        top: -50px;
       }
 
       .shop-link {
