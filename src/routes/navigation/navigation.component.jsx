@@ -11,6 +11,7 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component";
 
 import "./navigation.styles.scss";
+import "../../animations.scss";
 
 const Navigation = () => {
   const { isMenuOpen } = useContext(MenuDropdownContext);
