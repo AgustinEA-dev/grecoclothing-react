@@ -11,7 +11,7 @@ import {
 import "./sign-up-form.styles.scss";
 import "../../animations.scss";
 
-const defaultFormFields = {
+export const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",

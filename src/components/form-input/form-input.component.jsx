@@ -3,7 +3,7 @@ import "./form-input.styles.scss";
 const FormInput = ({ label, isError, ...otherProps }) => {
   return (
     <div className="group">
-      <input className="form-input" {...otherProps} />
+      <input autoComplete="off" className="form-input" {...otherProps} />
       {label && (
         <label
           className={`${

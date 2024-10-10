@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
 
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
-import Footer from "../../components/footer/footer.component";
+import CheckoutForm from "../../components/checkout-form/checkout-form.component";
 
 import "./checkout.styles.scss";
 
@@ -25,6 +25,7 @@ const Checkout = () => {
           <h3 className="empty-message">No products yet</h3>
         )}
       </div>
+      <CheckoutForm />
     </>
   );
 };
