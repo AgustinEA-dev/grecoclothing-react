@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import "./hero.styles.scss";
-import "../../animations.scss"
 
 const Hero = () => {
   return (

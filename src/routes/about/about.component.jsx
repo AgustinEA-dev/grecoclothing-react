@@ -3,7 +3,7 @@ import { ReactComponent as WavySeparator } from "../../assets/wave.svg";
 import Footer from "../../components/footer/footer.component";
 
 import "./about.styles.scss";
-import "../../animations.scss";
+
 
 const About = () => {
   return (

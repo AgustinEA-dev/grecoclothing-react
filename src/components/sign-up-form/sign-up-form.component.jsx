@@ -9,7 +9,6 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import "./sign-up-form.styles.scss";
-import "../../animations.scss";
 
 export const defaultFormFields = {
   displayName: "",
