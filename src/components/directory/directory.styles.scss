@@ -1,0 +1,29 @@
+.directory-section {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .directory-h2 {
+    margin: 20px auto;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .directory-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 800px) {
+  .directory-section {
+    .directory-container {
+      width: 90%;
+    }
+  }
+}

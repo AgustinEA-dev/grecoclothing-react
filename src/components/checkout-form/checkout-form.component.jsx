@@ -53,7 +53,7 @@ const CheckoutForm = () => {
             className="form-input"
             name="lastName"
             type="text"
-            isError={touched.name && errors.name}
+            isError={touched.lastName && errors.lastName}
             {...getFieldProps("lastName")}
           />
         </div>
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
           className="form-input"
           name="streetAddress"
           type="text"
-          isError={touched.name && errors.name}
+          isError={touched.streetAddress && errors.streetAddress}
           {...getFieldProps("streetAddress")}
         />
         <FormInput
@@ -72,7 +72,7 @@ const CheckoutForm = () => {
           className="form-input"
           name="city"
           type="text"
-          isError={touched.name && errors.name}
+          isError={touched.city && errors.city}
           {...getFieldProps("city")}
         />
         <FormInput
@@ -81,7 +81,7 @@ const CheckoutForm = () => {
           className="form-input"
           name="province"
           type="text"
-          isError={touched.name && errors.name}
+          isError={touched.province && errors.province}
           {...getFieldProps("province")}
         />
         <FormInput
@@ -90,7 +90,7 @@ const CheckoutForm = () => {
           className="form-input"
           name="postalCode"
           type="text"
-          isError={touched.name && errors.name}
+          isError={touched.postalCode && errors.postalCode}
           {...getFieldProps("postalCode")}
         />
       </form>
@@ -100,7 +100,7 @@ const CheckoutForm = () => {
           <option value="value1">UPS</option>
           <option value="value1">BEUEMER group</option>
         </select>
-        <button className="checkout-button">Continue to Payment</button>
+        <Button onSubmit={handleSubmit}>Continue to Payment</Button>
       </div>
     </div>
   );
