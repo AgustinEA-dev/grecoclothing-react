@@ -4,8 +4,8 @@ import Footer from "../../components/footer/footer.component";
 
 import "./about.styles.scss";
 
-
 const About = () => {
+
   return (
     <div className="about-container">
       <div className="about-image-container">
