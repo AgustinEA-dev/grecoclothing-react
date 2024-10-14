@@ -1,5 +1,6 @@
 import CategoryItem from "../category-item/category-item.component";
 import Banner from "../banner/banner.component";
+import Footer from "../footer/footer.component";
 
 import "./directory.styles.scss";
 

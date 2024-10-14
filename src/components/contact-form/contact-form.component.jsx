@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import TextArea from "../text-area/text-area.component";
-
+import Footer from "../footer/footer.component";
 import "./contact-form.styles.scss";
 
 import { validationSchema } from "../../schemas/validationSchema";
@@ -12,9 +12,9 @@ const ContactForm = () => {
   const { getFieldProps, handleSubmit, errors, touched } = useFormik({
     initialValues: {
       name: "",
-      lastname: "",
+      lastName: "",
       email: "",
-      textarea: "",
+      textArea: "",
     },
 
     validationSchema,
@@ -39,10 +39,10 @@ const ContactForm = () => {
         <FormInput
           label="Last Name"
           className="form-input"
-          name="lastname"
+          name="lastName"
           type="text"
-          isError={touched.lastname && errors.lastname}
-          {...getFieldProps("lastname")}
+          isError={touched.lastName && errors.lastName}
+          {...getFieldProps("lastName")}
         />
         <FormInput
           label="Email"
@@ -54,11 +54,11 @@ const ContactForm = () => {
         />
         <TextArea
           label="Tell us what you need"
-          name="textarea"
+          name="textArea"
           type="text"
           id="message"
-          isError={touched.textarea && errors.textarea}
-          {...getFieldProps("textarea")}
+          isError={touched.textArea && errors.textArea}
+          {...getFieldProps("textArea")}
         />
         <Button onSubmit={handleSubmit}>Submit</Button>
       </form>

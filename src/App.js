@@ -9,6 +9,7 @@ import Contact from "./routes/contact/contact.component";
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
 import Authentication from "./routes/authentication/authentication.component";
+import Footer from "./components/footer/footer.component";
 
 
 
@@ -38,7 +39,7 @@ function App() {
           <Route path="auth" element={<Authentication />} />
         </Route>
       </Routes>
-
+      <Footer />
     </div>
   );
 }

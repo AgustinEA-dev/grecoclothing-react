@@ -2,8 +2,8 @@ $sub-color: grey;
 $main-color: black;
 
 @mixin shrinkLabel {
-  top: -13px;
-  font-size: 12px;
+  top: -2px;
+  font-size: 11px;
   color: $main-color;
 }
 
