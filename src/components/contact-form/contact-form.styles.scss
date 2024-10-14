@@ -19,6 +19,9 @@ $main-color: black;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    button {
+      padding: 15px;
+    }
   }
 
   #message {
