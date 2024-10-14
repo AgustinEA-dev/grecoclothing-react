@@ -1,4 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navigation from "./routes/navigation/navigation.component";
 import Checkout from "./routes/checkout/checkout.component";
@@ -9,7 +11,20 @@ import Shop from "./routes/shop/shop.component";
 import Authentication from "./routes/authentication/authentication.component";
 
 
+
 function App() {
+  function GoToTop() {
+    const routePath = useLocation();
+    const onTop = () => {
+      window.scrollTo(0, 0);
+    }
+    useEffect(() => {
+      onTop()
+    }, [routePath]);
+
+    return null;
+  }
+  GoToTop()
   return (
     <div className="App">
       <Routes>
