@@ -1,19 +1,11 @@
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 import "./checkout-form.styles.scss";
 
-const validationSchema = Yup.object({
-  name: Yup.string().trim().required("This field es required"),
-  lastName: Yup.string().trim().required("This field is required"),
-  streetAddress: Yup.string().required("This field is required"),
-  city: Yup.string().required("This field is required"),
-  province: Yup.string().required("This field is required"),
-  postalCode: Yup.string().required("This field is required"),
-});
+import { validationSchema } from "../../schemas/validationSchema";
 
 const CheckoutForm = () => {
   const { getFieldProps, handleSubmit, errors, touched } = useFormik({

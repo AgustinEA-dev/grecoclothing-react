@@ -1,5 +1,4 @@
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -7,14 +6,7 @@ import TextArea from "../text-area/text-area.component";
 
 import "./contact-form.styles.scss";
 
-const validationSchema = Yup.object({
-  name: Yup.string().trim().required("This field es required"),
-  lastname: Yup.string().trim().required("This field is required"),
-  email: Yup.string().email("Invalid email").required("This field is required"),
-  textarea: Yup.string()
-    .min(50)
-    .required("This field must have at least 50 characters"),
-});
+import { validationSchema } from "../../schemas/validationSchema";
 
 const ContactForm = () => {
   const { getFieldProps, handleSubmit, errors, touched } = useFormik({
