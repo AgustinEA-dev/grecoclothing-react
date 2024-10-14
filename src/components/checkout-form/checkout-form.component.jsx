@@ -100,8 +100,8 @@ const CheckoutForm = () => {
           <option value="value1">UPS</option>
           <option value="value1">BEUEMER group</option>
         </select>
-        <Button onSubmit={handleSubmit}>Continue to Payment</Button>
       </div>
+      <Button onSubmit={handleSubmit}>Continue to Payment</Button>
     </div>
   );
 };

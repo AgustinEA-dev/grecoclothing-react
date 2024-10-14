@@ -25,6 +25,7 @@ function App() {
     return null;
   }
   GoToTop()
+
   return (
     <div className="App">
       <Routes>

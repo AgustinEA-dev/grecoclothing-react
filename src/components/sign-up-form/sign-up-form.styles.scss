@@ -4,8 +4,8 @@
   align-items: center;
   width: 100%;
 
-  form{
-    width: 50%;
+  form {
+    width: 80%;
   }
 
   h2 {
@@ -18,5 +18,9 @@
 
   .form-input {
     margin: 10px;
+  }
+
+  button {
+    padding: 15px;
   }
 }

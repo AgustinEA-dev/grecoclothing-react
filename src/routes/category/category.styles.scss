@@ -1,7 +1,9 @@
-.category-container {
-  margin-top: 20px;
+.category-products-container {
+  margin: 80px 30px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .title {

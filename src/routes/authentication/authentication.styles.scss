@@ -1,15 +1,14 @@
 .authentication-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: calc(100vh - 80px);
-  margin: 80px auto;
+  margin: 80px auto 0;
 }
 
 @media (max-width: 1000px) {
   .authentication-container {
     flex-direction: column;
     gap: 30px;
-    margin-top: 130px;
   }
 }
