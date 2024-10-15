@@ -39,7 +39,6 @@ function App() {
           <Route path="auth" element={<Authentication />} />
         </Route>
       </Routes>
-      <Footer />
     </div>
   );
 }
