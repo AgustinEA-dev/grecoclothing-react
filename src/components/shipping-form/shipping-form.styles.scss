@@ -1,0 +1,48 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 580px;
+
+  .shipping-form-h2 {
+    width: 90%;
+    background-color: rgb(202, 202, 202);
+    text-align: center;
+    font-weight: 200;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .shipping-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 240, 240);
+    row-gap: 20px;
+    padding: 40px;
+    width: 90%;
+  }
+
+  .name-lastName-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
+  button {
+    margin: 20px;
+    padding: 15px;
+    color: aqua;
+    font-size: 11px;
+  }
+
+  .shipping-company-h2 {
+    margin: 20px;
+  }
+
+  #select {
+    padding: 10px;
+    max-width: 120px;
+  }
+}

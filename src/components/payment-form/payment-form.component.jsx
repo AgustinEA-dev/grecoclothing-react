@@ -29,7 +29,6 @@ const PaymentForm = () => {
       <h2 className="payment-form-h2">PAYMENT</h2>
       <form className="payment-form">
         <FormInput
-          id="form1"
           label="Name on Card"
           className="form-input"
           name="name"
@@ -38,7 +37,6 @@ const PaymentForm = () => {
           {...getFieldProps("name")}
         />
         <FormInput
-          id="form3"
           label="Card Number"
           className="form-input"
           name="cardNumber"
@@ -66,6 +64,7 @@ const PaymentForm = () => {
             {...getFieldProps("cvc")}
           />
         </div>
+       
       </form>
       <Button onSubmit={handleSubmit}>Complete Payment</Button>
     </div>
