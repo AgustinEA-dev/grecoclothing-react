@@ -8,5 +8,8 @@ export const validationSchema = Yup.object({
   province: Yup.string().required("This field is required"),
   postalCode: Yup.string().required("This field is required"),
   textArea: Yup.string().required("This field is required"),
-  email: Yup.string().required("This field is required")
+  email: Yup.string().required("This field is required"),
+  cardNumber: Yup.string().required("This field is required"),
+  expiry: Yup.string().required("This field is required"),
+  cvc: Yup.string().required("This field is required")
 });

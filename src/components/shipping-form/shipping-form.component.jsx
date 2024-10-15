@@ -3,11 +3,11 @@ import { useFormik } from "formik";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import "./checkout-form.styles.scss";
+import "./shipping-form.styles.scss";
 
 import { validationSchema } from "../../schemas/validationSchema";
 
-const CheckoutForm = () => {
+const ShippingForm = () => {
   const { getFieldProps, handleSubmit, errors, touched } = useFormik({
     initialValues: {
       name: "",
@@ -27,7 +27,7 @@ const CheckoutForm = () => {
   });
   return (
     <div className="form-container">
-      <h2 className="form-h2">SHIPPING</h2>
+      <h2 className="shipping-form-h2">SHIPPING</h2>
       <form className="shipping-form">
         <div className="name-lastName-form">
           <FormInput
@@ -92,10 +92,10 @@ const CheckoutForm = () => {
           <option value="value1">UPS</option>
           <option value="value1">BEUEMER group</option>
         </select>
+        <Button onSubmit={handleSubmit}>Submit Shipping Information</Button>
       </div>
-      <Button onSubmit={handleSubmit}>Continue to Payment</Button>
     </div>
   );
 };
 
-export default CheckoutForm;
+export default ShippingForm;
