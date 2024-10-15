@@ -27,6 +27,7 @@ const About = () => {
         </h2>
       </div>
       <WavySeparator className="wavy-separator" />
+      <Footer />
     </div>
   );
 };

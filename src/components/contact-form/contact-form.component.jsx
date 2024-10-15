@@ -62,6 +62,7 @@ const ContactForm = () => {
         />
         <Button onSubmit={handleSubmit}>Submit</Button>
       </form>
+      <Footer />
     </div>
   );
 };

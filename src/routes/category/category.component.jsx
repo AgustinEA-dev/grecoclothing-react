@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import ProductCard from "../../components/product-card/product-card.component";
+import Footer from "../../components/footer/footer.component";
 
 import { CategoriesContext } from "../../contexts/categories.context";
 
@@ -17,12 +18,15 @@ const Category = () => {
   }, [category, categoriesMap]);
 
   return (
-    <div className="category-products-container">
-      {products &&
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-    </div>
+    <>
+      <div className="category-products-container">
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </div>
+      <Footer />
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { CartContext } from "../../contexts/cart.context";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import ShippingForm from "../../components/shipping-form/shipping-form.component";
 import PaymentForm from "../../components/payment-form/payment-form.component";
+import Footer from "../../components/footer/footer.component";
 
 import "./checkout.styles.scss";
 
@@ -28,6 +29,7 @@ const Checkout = () => {
       </div>
       <ShippingForm />
       <PaymentForm />
+      <Footer />
     </>
   );
 };

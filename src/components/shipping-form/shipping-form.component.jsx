@@ -88,7 +88,7 @@ const ShippingForm = () => {
           Mailchimp
         </option>
       </select>
-      <Button onSubmit={handleSubmit}>Continue to Payment</Button>
+      <Button onSubmit={handleSubmit}>Submit Shipping Information</Button>
     </div>
   );
 };
