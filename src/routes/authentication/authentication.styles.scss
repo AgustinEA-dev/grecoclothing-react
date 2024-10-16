@@ -6,6 +6,17 @@
   margin: 80px auto 0;
 }
 
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .wavy-separator {
+    max-height: 200px;
+    max-width: 1250px;
+    transform: translateY(5px);
+  }
+}
+
 @media (max-width: 1000px) {
   .authentication-container {
     flex-direction: column;

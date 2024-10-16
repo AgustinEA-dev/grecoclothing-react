@@ -21,6 +21,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      {/* <img className="greco-illustration" src="greco.jpg" alt="" /> */}
     </footer>
   );
 };

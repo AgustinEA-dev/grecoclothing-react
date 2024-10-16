@@ -25,45 +25,48 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="contact-form-container">
-      <h2 className="form-title">Contact us!</h2>
-      <form className="contact-form">
-        <FormInput
-          label="Name"
-          className="form-input"
-          name="name"
-          type="text"
-          isError={touched.name && errors.name}
-          {...getFieldProps("name")}
-        />
-        <FormInput
-          label="Last Name"
-          className="form-input"
-          name="lastName"
-          type="text"
-          isError={touched.lastName && errors.lastName}
-          {...getFieldProps("lastName")}
-        />
-        <FormInput
-          label="Email"
-          className="form-input"
-          name="email"
-          type="email"
-          isError={touched.email && errors.email}
-          {...getFieldProps("email")}
-        />
-        <TextArea
-          label="Tell us what you need"
-          name="textArea"
-          type="text"
-          id="message"
-          isError={touched.textArea && errors.textArea}
-          {...getFieldProps("textArea")}
-        />
-        <Button onSubmit={handleSubmit}>Submit</Button>
-      </form>
+    <>
+      <div className="contact-form-container">
+        <div className="contact-image-container"></div>
+        <h2 className="form-title">Contact us!</h2>
+        <form className="contact-form">
+          <FormInput
+            label="Name"
+            className="form-input"
+            name="name"
+            type="text"
+            isError={touched.name && errors.name}
+            {...getFieldProps("name")}
+          />
+          <FormInput
+            label="Last Name"
+            className="form-input"
+            name="lastName"
+            type="text"
+            isError={touched.lastName && errors.lastName}
+            {...getFieldProps("lastName")}
+          />
+          <FormInput
+            label="Email"
+            className="form-input"
+            name="email"
+            type="email"
+            isError={touched.email && errors.email}
+            {...getFieldProps("email")}
+          />
+          <TextArea
+            label="Tell us what you need"
+            name="textArea"
+            type="text"
+            id="message"
+            isError={touched.textArea && errors.textArea}
+            {...getFieldProps("textArea")}
+          />
+          <Button onSubmit={handleSubmit}>Submit</Button>
+        </form>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

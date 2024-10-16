@@ -18,6 +18,17 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .wavy-separator {
+      max-height: 200px;
+      max-width: 1250px;
+      transform: translateY(5px);
+    }
+  }
 }
 
 @media (max-width: 1200px) {
