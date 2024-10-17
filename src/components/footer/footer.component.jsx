@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./footer.styles.scss";
 
 const Footer = () => {
@@ -5,23 +7,22 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <p>
-          &copy; 2024{" "}
-          <img src="greco-white.png" alt="" className="footer-logo" /> All
-          rights reserved.
+          &copy; 2024
+          <Link to={"/"}>
+            <img src="greco-white.png" alt="" className="footer-logo" />
+          </Link>
+          All rights reserved.
         </p>
         <ul className="footer-links">
-          <li>
+          <Link to={"/about"}>
             <a href="/sobre-nosotros">About</a>
-          </li>
-          <li>
+          </Link>
+          <Link to={"/contact"}>
             <a href="/contacto">Contact</a>
-          </li>
-          <li>
-            <a href="/privacidad">Privacy Policy</a>
-          </li>
+          </Link>
+          <a href="/privacidad">Privacy Policy</a>
         </ul>
       </div>
-      {/* <img className="greco-illustration" src="greco.jpg" alt="" /> */}
     </footer>
   );
 };

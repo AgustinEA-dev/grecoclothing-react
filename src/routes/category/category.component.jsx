@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -21,13 +23,18 @@ const Category = () => {
 
   return (
     <>
-      <Toaster position="bottom-center" richColors />
       <div className="category-products-container">
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
       </div>
+      <div className="back-link-container">
+        <Link className="back-link" to={"/shop"}>
+          Back to categories
+        </Link>
+      </div>
+      <Toaster position="bottom-center" richColors />
       <Footer />
     </>
   );

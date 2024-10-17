@@ -63,7 +63,6 @@ const SignUpForm = () => {
 
   return (
     <>
-      <Toaster position="bottom-center" richColors />
       <div className="sign-up-container">
         <h2>Don't have an account?</h2>
         <span className="sign-up-span">
@@ -78,7 +77,6 @@ const SignUpForm = () => {
             name="displayName"
             value={displayName}
           />
-
           <FormInput
             label="Email"
             type="email"
@@ -87,7 +85,6 @@ const SignUpForm = () => {
             name="email"
             value={email}
           />
-
           <FormInput
             label="Password"
             type="password"
@@ -96,7 +93,6 @@ const SignUpForm = () => {
             name="password"
             value={password}
           />
-
           <FormInput
             label="Confirm Password"
             type="password"
@@ -110,6 +106,7 @@ const SignUpForm = () => {
           </Button>
         </form>
       </div>
+      <Toaster position="bottom-center" richColors />
     </>
   );
 };
