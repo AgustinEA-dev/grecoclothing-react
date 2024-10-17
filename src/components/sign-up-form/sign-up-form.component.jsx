@@ -1,4 +1,4 @@
-import Swal from "sweetalert2";
+import { Toaster, toast } from "sonner";
 
 import { useState } from "react";
 
@@ -43,22 +43,12 @@ const SignUpForm = () => {
 
       await createUserDocumentFromAuth(user, { displayName });
       if (user) {
-        Swal.fire({
-          title: "Welcome!",
-          text: "Succesfuly created user",
-          icon: "success",
-          confirmButtonText: "Back to page",
-        });
+        toast.success("Your user has been created.");
         resetFormFields();
       }
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        Swal.fire({
-          title: "Error!",
-          text: "User already in use",
-          icon: "error",
-          confirmButtonText: "Try again",
-        });
+        toast.error("User or email already in use.");
       } else {
         console.log("user creation encountered an error", error);
       }
@@ -72,50 +62,55 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>Don't have an account?</h2>
-      <span className="sign-up-span">Sign up with your email and password</span>
-      <form className="sign-up-form">
-        <FormInput
-          label="Display Name"
-          type="text"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
-        />
+    <>
+      <Toaster style={{ marginTop: "50px" }} position="top-right" richColors />
+      <div className="sign-up-container">
+        <h2>Don't have an account?</h2>
+        <span className="sign-up-span">
+          Sign up with your email and password
+        </span>
+        <form className="sign-up-form">
+          <FormInput
+            label="Display Name"
+            type="text"
+            required
+            onChange={handleChange}
+            name="displayName"
+            value={displayName}
+          />
 
-        <FormInput
-          label="Email"
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-        />
+          <FormInput
+            label="Email"
+            type="email"
+            required
+            onChange={handleChange}
+            name="email"
+            value={email}
+          />
 
-        <FormInput
-          label="Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-        />
+          <FormInput
+            label="Password"
+            type="password"
+            required
+            onChange={handleChange}
+            name="password"
+            value={password}
+          />
 
-        <FormInput
-          label="Confirm Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
-        />
-        <Button type="button" onClick={handleSubmit}>
-          Sign Up
-        </Button>
-      </form>
-    </div>
+          <FormInput
+            label="Confirm Password"
+            type="password"
+            required
+            onChange={handleChange}
+            name="confirmPassword"
+            value={confirmPassword}
+          />
+          <Button type="button" onClick={handleSubmit}>
+            Sign Up
+          </Button>
+        </form>
+      </div>
+    </>
   );
 };
 

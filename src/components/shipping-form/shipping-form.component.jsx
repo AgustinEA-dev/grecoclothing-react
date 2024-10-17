@@ -84,7 +84,7 @@ const ShippingForm = () => {
       <h2 className="shipping-company-h2">Select Shipping Company</h2>
       <select name="select" id="select">
         <option value="value1">UPS</option>
-        <option value="value2" selected>
+        <option value="value2">
           Mailchimp
         </option>
       </select>

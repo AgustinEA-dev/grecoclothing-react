@@ -1,6 +1,7 @@
 import { useContext } from "react";
-
 import { CartContext } from "../../contexts/cart.context";
+
+import { Toaster } from "sonner";
 
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import ShippingForm from "../../components/shipping-form/shipping-form.component";
@@ -14,6 +15,7 @@ const Checkout = () => {
 
   return (
     <>
+      <Toaster position="bottom-center" richColors />
       <div className="checkout-container">
         <h2 className="checkout-title">Complete your buy!</h2>
         {cartItems.length ? (

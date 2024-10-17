@@ -8,7 +8,7 @@ const addCartItem = (cartItems, productToAdd) => {
   );
 
   if (existingCartItem) {
-    toast.warning("Product already added")
+    toast.warning("Product already added");
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
@@ -25,6 +25,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 
   if (existingCartItem.quantity === 1) {
+
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
 
