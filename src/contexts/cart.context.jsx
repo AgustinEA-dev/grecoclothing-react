@@ -1,18 +1,21 @@
 import { createContext, useState, useEffect } from "react";
 
+import { toast } from "sonner";
+
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
 
   if (existingCartItem) {
+    toast.warning("Product already added")
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
     );
   }
-
+  toast.success("Product added succesfully!");
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 

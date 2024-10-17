@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 import { useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
@@ -40,10 +42,23 @@ const SignUpForm = () => {
       );
 
       await createUserDocumentFromAuth(user, { displayName });
-      resetFormFields();
+      if (user) {
+        Swal.fire({
+          title: "Welcome!",
+          text: "Succesfuly created user",
+          icon: "success",
+          confirmButtonText: "Back to page",
+        });
+        resetFormFields();
+      }
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use");
+        Swal.fire({
+          title: "Error!",
+          text: "User already in use",
+          icon: "error",
+          confirmButtonText: "Try again",
+        });
       } else {
         console.log("user creation encountered an error", error);
       }
@@ -60,7 +75,7 @@ const SignUpForm = () => {
     <div className="sign-up-container">
       <h2>Don't have an account?</h2>
       <span className="sign-up-span">Sign up with your email and password</span>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
+      <form className="sign-up-form">
         <FormInput
           label="Display Name"
           type="text"
@@ -96,7 +111,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button id="signup-button" type="submit">
+        <Button type="button" onClick={handleSubmit}>
           Sign Up
         </Button>
       </form>

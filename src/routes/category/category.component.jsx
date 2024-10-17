@@ -1,6 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import { Toaster } from "sonner";
+
 import ProductCard from "../../components/product-card/product-card.component";
 import Footer from "../../components/footer/footer.component";
 
@@ -19,6 +21,7 @@ const Category = () => {
 
   return (
     <>
+      <Toaster position="bottom-center" richColors />
       <div className="category-products-container">
         {products &&
           products.map((product) => (
