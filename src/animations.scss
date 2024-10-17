@@ -73,12 +73,9 @@ h2,
   animation-duration: 0.3s;
 }
 
-.wavy-separator {
-  animation-name: slide-bottom;
-  animation-duration: 1s;
-}
-
+.logo,
+.about-link,
 .image-greco-container {
   animation-name: slide-bottom;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }

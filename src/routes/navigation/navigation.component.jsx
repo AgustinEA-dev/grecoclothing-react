@@ -21,7 +21,7 @@ const Navigation = () => {
       <header className="navbar-container">
         <div className="logo-links-container">
           <MenuDropdown />
-          <Link className="logo" to={"/"}>
+          <Link className="nav-logo" to={"/"}>
             <img className="navigation-logo" src="greco.png" alt="greco-logo" />
           </Link>
           <nav className="links-container">
