@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  min-height: 250px;
+  min-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +9,7 @@
   padding: 20px;
   text-align: center;
   font-size: 15px;
+  border-top: 2px solid rgb(155, 237, 237);
 
   .footer-links {
     display: flex;

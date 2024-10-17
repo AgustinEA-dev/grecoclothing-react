@@ -16,17 +16,17 @@ const About = () => {
           store is a heaven for trendsetters and street style enthusiasts,
           offering a curated selection of the latest urban apparel. From graphic
           tees and oversized hoodies to stylish joggers and accessories, we have
-          everything you need to express your unique personality.
+          everything you need to express your unique personality. Join us on
+          this stylish journey, and discover the perfect pieces to elevate your
+          wardrobe.
         </h2>
         <div className="image-greco-container">
           <img className="about-image-greco" src="greco-graffiti.jpg" alt="" />
         </div>
         <h2 className="about-text">
-          Join us on this stylish journey, and discover the perfect pieces to
-          elevate your wardrobe. Thank you for being a part of the Greco family!
+          - Thank you for being a part of the Greco family! -
         </h2>
       </div>
-      <WavySeparator className="wavy-separator" />
       <Footer />
     </div>
   );

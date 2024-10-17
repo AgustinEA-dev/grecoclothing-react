@@ -2,8 +2,6 @@ import CategoryItem from "../category-item/category-item.component";
 import Banner from "../banner/banner.component";
 import Footer from "../footer/footer.component";
 
-import { ReactComponent as WavySeparator } from "../../assets/wave.svg";
-
 import "./directory.styles.scss";
 
 const Directory = ({ categories }) => {
@@ -17,7 +15,6 @@ const Directory = ({ categories }) => {
         ))}
       </div>
       <div className="footer-container">
-        <WavySeparator className="wavy-separator" />
         <Footer />
       </div>
     </div>

@@ -34,7 +34,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      clip-path: polygon(14% 19%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+      clip-path: polygon(14% 19%, 57% 0, 100% 50%, 75% 100%, 0% 100%);
     }
   }
 }
@@ -45,6 +45,10 @@
   font-weight: lighter;
   text-align: center;
   padding: 60px;
+}
+
+.about-text:nth-child(3){
+  font-size: 40px;
 }
 
 .wavy-separator {

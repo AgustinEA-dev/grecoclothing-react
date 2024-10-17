@@ -17,6 +17,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 150px;
   }
   .footer-container {
     display: flex;
@@ -26,7 +27,6 @@
     .wavy-separator {
       max-height: 200px;
       max-width: 1250px;
-      transform: translateY(5px);
     }
   }
 }
