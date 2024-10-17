@@ -63,7 +63,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <Toaster style={{ marginTop: "50px" }} position="top-right" richColors />
+      <Toaster position="bottom-center" richColors />
       <div className="sign-up-container">
         <h2>Don't have an account?</h2>
         <span className="sign-up-span">
