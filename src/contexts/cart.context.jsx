@@ -80,12 +80,14 @@ export const CartProvider = ({ children }) => {
 
   let cartRef = useRef();
   let menuRef = useRef();
+  let cartIconRef = useRef();
 
   useEffect(() => {
     let closeOnWindowClick = (e) => {
       if (
         !cartRef.current.contains(e.target) &&
-        !menuRef.current.contains(e.target)
+        !menuRef.current.contains(e.target) &&
+        !cartIconRef.current.contains(e.target)
       ) {
         setIsCartOpen(false);
         setIsMenuOpen(false);
@@ -139,6 +141,7 @@ export const CartProvider = ({ children }) => {
     setIsMenuOpen,
     cartRef,
     menuRef,
+    cartIconRef,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
