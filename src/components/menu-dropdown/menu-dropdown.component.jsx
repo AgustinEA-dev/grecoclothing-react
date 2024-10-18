@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { MenuDropdownContext } from "../../contexts/menu-dropdown.context";
+import { CartContext } from "../../contexts/cart.context";
 
 import { Link } from "react-router-dom";
 
 import "./menu-dropdown.styles.scss";
 
 const MenuDropdown = () => {
-  const { isMenuOpen, toggleIsMenuOpen } = useContext(MenuDropdownContext);
+  const { isMenuOpen, toggleIsMenuOpen, menuRef } = useContext(CartContext);
   return (
     <div
+      ref={menuRef}
       className={`${
         isMenuOpen ? "menu-dropdown-container-open" : "menu-dropdown-container"
       }`}

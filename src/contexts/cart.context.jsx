@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 import { toast } from "sonner";
 
@@ -25,9 +25,10 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 
   if (existingCartItem.quantity === 1) {
-
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
+
+  toast.success("Item removed.");
 
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
@@ -36,8 +37,10 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
-const clearCartItem = (cartItems, cartItemToClear) =>
-  cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
+const clearCartItem = (cartItems, cartItemToClear) => {
+  toast.success("Product removed from cart");
+  return cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
+};
 
 export const CartContext = createContext({
   isCartOpen: false,
@@ -48,23 +51,49 @@ export const CartContext = createContext({
   clearItemFromCart: () => {},
   cartCount: 0,
   cartTotal: 0,
+  isMenuOpen: false,
+  setIsMenuOpen: () => {},
+  closeOnWindowClick: () => {},
 });
 
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleIsCarOpen = () => {
+  const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
-    console.log(isCartOpen);
+    setIsMenuOpen(false);
+  };
+
+  const toggleIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsCartOpen(false);
   };
 
   const toggleIsCartOpenAndNavigateToCheckout = (func) => {
     setIsCartOpen(!isCartOpen);
     func();
   };
+
+  let cartRef = useRef();
+  let menuRef = useRef();
+
+  useEffect(() => {
+    let closeOnWindowClick = (e) => {
+      if (
+        !cartRef.current.contains(e.target) &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setIsCartOpen(false);
+        setIsMenuOpen(false);
+        console.log(menuRef);
+      }
+    };
+    document.addEventListener("mousedown", closeOnWindowClick);
+  });
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -97,7 +126,8 @@ export const CartProvider = ({ children }) => {
   const value = {
     isCartOpen,
     setIsCartOpen,
-    toggleIsCarOpen,
+    toggleIsCartOpen,
+    toggleIsMenuOpen,
     toggleIsCartOpenAndNavigateToCheckout,
     addItemToCart,
     removeItemToCart,
@@ -105,6 +135,10 @@ export const CartProvider = ({ children }) => {
     cartItems,
     cartCount,
     cartTotal,
+    isMenuOpen,
+    setIsMenuOpen,
+    cartRef,
+    menuRef,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

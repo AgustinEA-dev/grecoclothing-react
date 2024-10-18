@@ -1,13 +1,12 @@
 import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 
 import { ReactComponent as BarsIcon } from "../../assets/bars-icon.svg";
-
-import { MenuDropdownContext } from "../../contexts/menu-dropdown.context";
 
 import "./bars-icon.styles.scss";
 
 const Bars = () => {
-  const { toggleIsMenuOpen } = useContext(MenuDropdownContext);
+  const { toggleIsMenuOpen } = useContext(CartContext);
 
   return (
     <div className="bars-icon-container" onClick={toggleIsMenuOpen}>

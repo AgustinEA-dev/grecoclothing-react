@@ -14,13 +14,9 @@ const Footer = () => {
           All rights reserved.
         </p>
         <ul className="footer-links">
-          <Link to={"/about"}>
-            <a href="/sobre-nosotros">About</a>
-          </Link>
-          <Link to={"/contact"}>
-            <a href="/contacto">Contact</a>
-          </Link>
-          <a href="/privacidad">Privacy Policy</a>
+          <Link to={"/about"}>About</Link>
+          <Link to={"/contact"}>Contact</Link>
+          <Link>Privacy Policy</Link>
         </ul>
       </div>
     </footer>

@@ -27,7 +27,7 @@
   .name-lastName-container {
     display: flex;
     width: 100%;
-    gap: 10px;
+    gap: 20px;
   }
 
   button {
@@ -44,5 +44,11 @@
   #select {
     padding: 10px;
     max-width: 120px;
+  }
+}
+
+@media (max-width: 500px) {
+  .name-lastName-container {
+    flex-direction: column;
   }
 }
