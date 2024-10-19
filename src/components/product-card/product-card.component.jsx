@@ -26,6 +26,7 @@ const ProductCard = ({ product }) => {
           Add to cart
         </Button>
       </div>
+      <span className="bulk-span">Bulk purchase discount</span>
     </div>
   );
 };

@@ -24,6 +24,15 @@
     display: none;
   }
 
+  .bulk-span {
+    background-color: rgb(86, 40, 165);
+    color: white;
+    padding: 5px;
+    margin-top: 5px;
+    align-self: flex-end;
+    position: absolute;
+  }
+
   &:hover {
     img {
       opacity: 0.8;
