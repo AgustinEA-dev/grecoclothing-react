@@ -91,7 +91,6 @@ export const CartProvider = ({ children }) => {
       ) {
         setIsCartOpen(false);
         setIsMenuOpen(false);
-        console.log(menuRef);
       }
     };
     document.addEventListener("mousedown", closeOnWindowClick);

@@ -19,7 +19,6 @@ const CartDropdown = () => {
   const goToCheckoutHandler = () => {
     navigate("/checkout");
   };
-  console.log(isCartOpen);
   return (
     <div
       ref={cartRef}

@@ -1,4 +1,4 @@
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 import { useState } from "react";
 
@@ -31,7 +31,7 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -49,8 +49,6 @@ const SignUpForm = () => {
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         toast.error("User or email already in use.");
-      } else {
-        console.log("user creation encountered an error", error);
       }
     }
   };
@@ -106,7 +104,6 @@ const SignUpForm = () => {
           </Button>
         </form>
       </div>
-      <Toaster position="bottom-center" richColors />
     </>
   );
 };
