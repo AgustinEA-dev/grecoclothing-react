@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import { UserContext } from "../../contexts/user.context";
+
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import { Outlet, Link } from "react-router-dom";
 
@@ -12,8 +15,17 @@ import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component
 import "./navigation.styles.scss";
 import "../../animations.scss";
 
+import { Toaster, toast } from "sonner";
+
 const Navigation = () => {
   const { isMenuOpen } = useContext(CartContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const singnOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+    toast.success("Sign Out successfuly.");
+  };
 
   return (
     <>
@@ -36,14 +48,21 @@ const Navigation = () => {
           </nav>
         </div>
         <div className="icons-container">
-          <Link className="nav-link" to="/auth">
-            Sign In
-          </Link>
+          {currentUser ? (
+            <Link onClick={singnOutHandler} className="nav-link">
+              Sign Out
+            </Link>
+          ) : (
+            <Link className="nav-link" to="/auth">
+              Sign In
+            </Link>
+          )}
           {!isMenuOpen ? <Bars /> : <Close />}
           <CartIcon />
         </div>
         <CartDropdown />
       </header>
+      <Toaster position="bottom-center" richColors />
       <Outlet />
     </>
   );

@@ -1,15 +1,16 @@
-import { Toaster, toast } from "sonner";
-
-import { useState } from "react";
-
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import { useState, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
+
+import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
+import { Toaster, toast } from "sonner";
 
 import "./sign-in-form.styles.scss";
 
@@ -21,6 +22,8 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -34,14 +37,14 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      if (response) {
+      if (user) {
         toast.success("Welcome back!");
+        setCurrentUser(user);
       }
-      console.log(response);
       resetFormFields();
     } catch (error) {
       if (error) {
