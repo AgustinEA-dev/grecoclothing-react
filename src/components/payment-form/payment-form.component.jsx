@@ -17,12 +17,7 @@ const PaymentForm = () => {
       cardNumber: "",
       postalCode: "",
     },
-
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      console.log({ values });
-      resetForm();
-    },
   });
   return (
     <div className="form-container">
@@ -64,7 +59,6 @@ const PaymentForm = () => {
             {...getFieldProps("cvc")}
           />
         </div>
-       
       </form>
       <Button onSubmit={handleSubmit}>Complete Payment</Button>
     </div>

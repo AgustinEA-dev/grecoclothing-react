@@ -22,6 +22,19 @@ $main-color: black;
     border-radius: 0;
     border-bottom: 1px solid $sub-color;
 
+    .form-input-error {
+      background: none;
+      background-color: white;
+      color: $main-color;
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid red;
+    }
+
     &:focus {
       outline: none;
     }

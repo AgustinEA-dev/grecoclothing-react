@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { CartContext } from "./contexts/cart.context";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -9,8 +10,11 @@ import Contact from "./routes/contact/contact.component";
 import Home from "./routes/home/home.component";
 import Shop from "./routes/shop/shop.component";
 import Authentication from "./routes/authentication/authentication.component";
+import BackgroundLayer from "./components/background-layer/background-layer.component";
 
 function App() {
+  const { isCartOpen } = useContext(CartContext)
+
   function GoToTop() {
     const routePath = useLocation();
     const onTop = () => {
@@ -26,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      {isCartOpen && <BackgroundLayer />}
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />

@@ -16,12 +16,7 @@ const ContactForm = () => {
       email: "",
       textArea: "",
     },
-
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      console.log({ values });
-      resetForm();
-    },
   });
 
   return (
