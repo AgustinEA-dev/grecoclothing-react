@@ -15,17 +15,11 @@ import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component
 import "./navigation.styles.scss";
 import "../../animations.scss";
 
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 
 const Navigation = () => {
   const { isMenuOpen } = useContext(CartContext);
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const singnOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-    toast.success("Sign Out successfuly.");
-  };
+  const { currentUser } = useContext(UserContext);
 
   return (
     <>
@@ -49,7 +43,7 @@ const Navigation = () => {
         </div>
         <div className="icons-container">
           {currentUser ? (
-            <Link onClick={singnOutHandler} className="nav-link">
+            <Link onClick={signOutUser} className="nav-link">
               Sign Out
             </Link>
           ) : (
