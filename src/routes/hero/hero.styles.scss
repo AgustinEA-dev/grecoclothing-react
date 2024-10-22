@@ -3,7 +3,7 @@
 
   .image-container {
     width: 50%;
-    height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
 
   .hero-text-container {
     width: 50%;
-    height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
 
     .image-container {
       width: 100%;
-      height: calc(50dvh);
+      height: calc(100vh - 80px);
 
       .logo {
         width: 300px;
@@ -68,7 +68,7 @@
 
     .hero-text-container {
       width: 100%;
-      height: 50dvh;
+      height: 30vh;
       margin-top: 0;
 
       .about-link {
