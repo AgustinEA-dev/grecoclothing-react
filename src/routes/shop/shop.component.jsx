@@ -34,10 +34,12 @@ const Shop = () => {
     },
   ];
   return (
-    <Routes>
-      <Route index element={<Directory categories={categories} />} />
-      <Route path=":category" element={<Category />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route index element={<Directory categories={categories} />} />
+        <Route path=":category" element={<Category />} />
+      </Routes>
+    </>
   );
 };
 
