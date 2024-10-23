@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect, useRef } from "react";
 
+import { signOutUser } from "../utils/firebase/firebase.utils";
+
 import { toast } from "sonner";
 
 const addCartItem = (cartItems, productToAdd) => {
@@ -68,14 +70,20 @@ export const CartProvider = ({ children }) => {
     setIsMenuOpen(false);
   };
 
+  const toggleIsCartOpenAndNavigateToCheckout = (func) => {
+    setIsCartOpen(!isCartOpen);
+    func();
+  };
+
   const toggleIsMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsCartOpen(false);
   };
 
-  const toggleIsCartOpenAndNavigateToCheckout = (func) => {
-    setIsCartOpen(!isCartOpen);
-    func();
+  const toggleIsMenuOpenAndSignOut = () => {
+    signOutUser();
+    setIsMenuOpen(!isMenuOpen);
+    setIsCartOpen(false);
   };
 
   let cartRef = useRef();
@@ -130,6 +138,7 @@ export const CartProvider = ({ children }) => {
     toggleIsCartOpen,
     toggleIsMenuOpen,
     toggleIsCartOpenAndNavigateToCheckout,
+    toggleIsMenuOpenAndSignOut,
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,

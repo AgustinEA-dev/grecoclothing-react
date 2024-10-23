@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import "./menu-dropdown.styles.scss";
 
 const MenuDropdown = () => {
-  const { isMenuOpen, toggleIsMenuOpen, menuRef } = useContext(CartContext);
+  const { isMenuOpen, toggleIsMenuOpen, menuRef, toggleIsMenuOpenAndSignOut } =
+    useContext(CartContext);
   const { currentUser } = useContext(UserContext);
 
   return (
@@ -28,7 +29,11 @@ const MenuDropdown = () => {
           Contact
         </Link>
         {currentUser ? (
-          <Link onClick={toggleIsMenuOpen} className="menu-link" to="/auth">
+          <Link
+            onClick={toggleIsMenuOpenAndSignOut}
+            className="menu-link"
+            to="/auth"
+          >
             Sign Out
           </Link>
         ) : (
