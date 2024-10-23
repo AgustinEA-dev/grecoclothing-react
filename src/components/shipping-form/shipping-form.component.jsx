@@ -22,7 +22,7 @@ const ShippingForm = () => {
   });
   return (
     <div className="form-container">
-      <h2 className="shipping-form-h2">PAYMENT</h2>
+      <h2 className="shipping-form-h2">SHIPPING</h2>
       <form className="shipping-form">
         <div className="name-lastName-container">
           <FormInput

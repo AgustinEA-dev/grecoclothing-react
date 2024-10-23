@@ -35,7 +35,7 @@ const CartDropdown = () => {
           </div>
         </>
       ) : (
-        <h3 className="empty-message">No products yet</h3>
+        <h3 className="empty-message">Your cart is empty</h3>
       )}
       <button
         onClick={() =>

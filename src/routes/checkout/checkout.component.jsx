@@ -26,7 +26,7 @@ const Checkout = () => {
             <div className="total">TOTAL: ${cartTotal}</div>{" "}
           </>
         ) : (
-          <h3 className="empty-message">No products yet</h3>
+          <h3 className="empty-message">Your cart is empty</h3>
         )}
       </div>
       <ShippingForm />
