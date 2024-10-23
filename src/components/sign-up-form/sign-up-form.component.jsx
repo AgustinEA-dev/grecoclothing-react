@@ -29,6 +29,7 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!displayName && !email && !password && !confirmPassword) {
       toast.warning("Please complete all fields.");
     }
