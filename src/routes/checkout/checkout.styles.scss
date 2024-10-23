@@ -25,6 +25,9 @@
 
 @media (max-width: 1000px) {
   .checkout-container {
-    // margin: 160px 10px;
+    width: 80%;
+    .checkout-title {
+      font-size: 30px;
+    }
   }
 }
