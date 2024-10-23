@@ -8,7 +8,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 import "./sign-up-form.styles.scss";
 
@@ -29,6 +29,9 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!displayName && !email && !password && !confirmPassword) {
+      toast.warning("Please complete all fields.");
+    }
 
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
@@ -103,6 +106,7 @@ const SignUpForm = () => {
             Sign Up
           </Button>
         </form>
+        <Toaster position="bottom-center" />
       </div>
     </>
   );
