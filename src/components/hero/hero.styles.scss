@@ -3,16 +3,15 @@
 
   .image-container {
     width: 50%;
-    height: calc(100vh - 80px);
-    margin-top: 80px;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(
-      rgba(27, 28, 30, 0),
-      rgba(16, 17, 17, 0.4)
-    ),
+        rgba(27, 28, 30, 0),
+        rgba(16, 17, 17, 0.4)
+      ),
       url("../../../public/foto-hero-1.jpg");
     background-size: cover;
 
@@ -24,8 +23,7 @@
 
   .hero-text-container {
     width: 50%;
-    height: calc(100vh - 80px);
-    margin-top: 80px;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,8 +50,6 @@
 
     .image-container {
       width: 100%;
-      height: calc(100vh - 80px);
-
       .logo {
         width: 300px;
         height: 300px;
