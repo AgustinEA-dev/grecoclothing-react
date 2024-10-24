@@ -41,6 +41,9 @@ const MenuDropdown = () => {
             Sign in
           </Link>
         )}
+        <Link onClick={toggleIsMenuOpen} className="nav-logo" to={"/"}>
+          <img className="logo-drop-menu" src="greco.png" alt="greco-logo" />
+        </Link>
       </ul>
     </div>
   );
