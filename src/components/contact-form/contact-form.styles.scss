@@ -8,7 +8,11 @@ $main-color: black;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(105, 105, 105);
+  background-image: linear-gradient(
+    rgba(255, 219, 75, 0.667),
+    rgba(22, 121, 241, 0.4)
+  ), url(../../../public/fondo-contact.jpg);
+  
 
   .form-title {
     font-size: 50px;
