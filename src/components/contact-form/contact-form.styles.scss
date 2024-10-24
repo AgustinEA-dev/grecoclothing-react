@@ -3,7 +3,7 @@ $main-color: black;
 
 .contact-form-container {
   margin-top: 80px;
-  height: calc(100vh - 80px);
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,4 +46,3 @@ $main-color: black;
     }
   }
 }
-
