@@ -72,7 +72,7 @@ const SignUpForm = () => {
         </span>
         <form className="sign-up-form">
           <FormInput
-            label="Display Name"
+            label="Full Name"
             type="text"
             required
             onChange={handleChange}
