@@ -11,7 +11,7 @@
   position: absolute;
   top: 80px;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 100dvh;
   transform: translateX(0);
   transition: all 0.5s ease-in-out;
 }
