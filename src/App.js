@@ -1,7 +1,11 @@
 import { useEffect, useContext } from "react";
+import { useDispatch } from "react-redux"
+
 import { CartContext } from "./contexts/cart.context";
+import { setCurrentUser } from "./store/user/user.action";
 
 import { Routes, Route, useLocation } from "react-router-dom";
+import { onAuthStateChangedListener, createUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
 
 import Navigation from "./routes/navigation/navigation.component";
 import Checkout from "./routes/checkout/checkout.component";
@@ -14,6 +18,7 @@ import BackgroundLayer from "./components/background-layer/background-layer.comp
 
 function App() {
   const { isCartOpen } = useContext(CartContext)
+  const dispatch = useDispatch()
 
   function GoToTop() {
     const routePath = useLocation();
@@ -27,6 +32,16 @@ function App() {
     return null;
   }
   GoToTop()
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="App">

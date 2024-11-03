@@ -1,20 +1,20 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-import { Toaster } from "sonner";
+import { useSelector } from "react-redux";
 
 import ProductCard from "../../components/product-card/product-card.component";
 import Footer from "../../components/footer/footer.component";
 
-import { CategoriesContext } from "../../contexts/categories.context";
+import { selectCategoriesMap } from "../../store/categories/category.selector";
 
 import "./category.styles.scss";
 
+import { Toaster } from "sonner";
+
 const Category = () => {
   const { category } = useParams();
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
@@ -23,7 +23,6 @@ const Category = () => {
 
   return (
     <>
-
       <h2 className="title">{category.toLocaleUpperCase()}</h2>
       <div className="category-products-container">
         {products &&

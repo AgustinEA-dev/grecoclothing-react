@@ -1,8 +1,11 @@
 import { useContext } from "react";
+
+import { useSelector } from "react-redux";
+
 import { CartContext } from "../../contexts/cart.context";
-import { UserContext } from "../../contexts/user.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { Outlet, Link } from "react-router-dom";
 
@@ -11,7 +14,6 @@ import Bars from "../../components/bars-icon/bars-icon.component";
 import Close from "../../components/close-icon/close-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component";
-import UserIcon from "../../components/user-icon/user-icon.component";
 
 import "./navigation.styles.scss";
 import "../../animations.scss";
@@ -19,8 +21,8 @@ import "../../animations.scss";
 import { Toaster } from "sonner";
 
 const Navigation = () => {
+  const currentUser = useSelector(selectCurrentUser);
   const { isMenuOpen } = useContext(CartContext);
-  const { currentUser } = useContext(UserContext);
 
   return (
     <>
@@ -44,12 +46,9 @@ const Navigation = () => {
         </div>
         <div className="icons-container">
           {currentUser ? (
-            <>
-              <UserIcon />
-              <Link onClick={signOutUser} className="nav-link">
-                Sign Out
-              </Link>
-            </>
+            <Link onClick={signOutUser} className="nav-link">
+              Sign Out
+            </Link>
           ) : (
             <Link className="nav-link" to="/auth">
               Sign In

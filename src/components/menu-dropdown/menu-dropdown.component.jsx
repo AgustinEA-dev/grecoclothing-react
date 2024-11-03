@@ -1,15 +1,17 @@
+import { useSelector } from "react-redux";
 import { useContext } from "react";
+
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { CartContext } from "../../contexts/cart.context";
-import { UserContext } from "../../contexts/user.context";
 
 import { Link } from "react-router-dom";
 
 import "./menu-dropdown.styles.scss";
 
 const MenuDropdown = () => {
+  const currentUser = useSelector(selectCurrentUser);
   const { isMenuOpen, toggleIsMenuOpen, menuRef, toggleIsMenuOpenAndSignOut } =
     useContext(CartContext);
-  const { currentUser } = useContext(UserContext);
 
   return (
     <div
