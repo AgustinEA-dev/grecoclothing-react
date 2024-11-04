@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useRef } from "react";
 
 import { signOutUser } from "../utils/firebase/firebase.utils";
+import { getItem, setItem } from "../utils/localStorage/localStorage";
 
 import { toast } from "sonner";
 
@@ -60,10 +61,35 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(() => {
+    const cartItem = getItem("cartItems");
+    return cartItem || [];
+  });
+
+  useEffect(() => {
+    setItem("cartItems", cartItems);
+  }, [cartItems]);
+
+  let cartRef = useRef();
+  let menuRef = useRef();
+  let cartIconRef = useRef();
+
+  useEffect(() => {
+    let closeOnWindowClick = (e) => {
+      if (
+        !cartRef.current.contains(e.target) &&
+        !menuRef.current.contains(e.target) &&
+        !cartIconRef.current.contains(e.target)
+      ) {
+        setIsCartOpen(false);
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", closeOnWindowClick);
+  });
 
   const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
@@ -85,24 +111,6 @@ export const CartProvider = ({ children }) => {
     setIsMenuOpen(!isMenuOpen);
     setIsCartOpen(false);
   };
-
-  let cartRef = useRef();
-  let menuRef = useRef();
-  let cartIconRef = useRef();
-
-  useEffect(() => {
-    let closeOnWindowClick = (e) => {
-      if (
-        !cartRef.current.contains(e.target) &&
-        !menuRef.current.contains(e.target) &&
-        !cartIconRef.current.contains(e.target)
-      ) {
-        setIsCartOpen(false);
-        setIsMenuOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", closeOnWindowClick);
-  });
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -134,7 +142,6 @@ export const CartProvider = ({ children }) => {
 
   const value = {
     isCartOpen,
-    setIsCartOpen,
     toggleIsCartOpen,
     toggleIsMenuOpen,
     toggleIsCartOpenAndNavigateToCheckout,
@@ -146,7 +153,6 @@ export const CartProvider = ({ children }) => {
     cartCount,
     cartTotal,
     isMenuOpen,
-    setIsMenuOpen,
     cartRef,
     menuRef,
     cartIconRef,
