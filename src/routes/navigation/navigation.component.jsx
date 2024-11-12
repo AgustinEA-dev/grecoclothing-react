@@ -18,8 +18,6 @@ import MenuDropdown from "../../components/menu-dropdown/menu-dropdown.component
 import "./navigation.styles.scss";
 import "../../animations.scss";
 
-import { Toaster } from "sonner";
-
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const { isMenuOpen } = useContext(CartContext);
@@ -59,7 +57,6 @@ const Navigation = () => {
         </div>
         <CartDropdown />
       </header>
-      <Toaster position="bottom-center" richColors />
       <Outlet />
     </>
   );

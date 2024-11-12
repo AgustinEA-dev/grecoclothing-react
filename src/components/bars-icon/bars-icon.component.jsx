@@ -6,10 +6,10 @@ import { ReactComponent as BarsIcon } from "../../assets/bars-icon.svg";
 import "./bars-icon.styles.scss";
 
 const Bars = () => {
-  const { toggleIsMenuOpen } = useContext(CartContext);
+  const { setIsMenuOpen } = useContext(CartContext);
 
   return (
-    <div className="bars-icon-container" onClick={toggleIsMenuOpen}>
+    <div className="bars-icon-container" onClick={setIsMenuOpen}>
       <BarsIcon className="bars-icon" />
     </div>
   );

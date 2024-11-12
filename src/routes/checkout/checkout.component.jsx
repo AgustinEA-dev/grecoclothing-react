@@ -15,7 +15,6 @@ const Checkout = () => {
 
   return (
     <>
-      <Toaster position="bottom-center" richColors />
       <div className="checkout-container">
         <h2 className="checkout-title">Complete your buy!</h2>
         {cartItems.length ? (
@@ -29,6 +28,7 @@ const Checkout = () => {
           <h3 className="empty-message">Your cart is empty</h3>
         )}
       </div>
+      <Toaster />
       <ShippingForm />
       <PaymentForm />
       <Footer />

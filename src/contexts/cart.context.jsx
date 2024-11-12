@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect, useRef } from "react";
+import { createContext, useReducer } from "react";
 
 import { signOutUser } from "../utils/firebase/firebase.utils";
-import { getItem, setItem } from "../utils/localStorage/localStorage";
+// import { getItem, setItem } from "../utils/localStorage/localStorage";
 
 import { toast } from "sonner";
 
@@ -31,8 +31,6 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
 
-  toast.success("Item removed.");
-
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
@@ -46,106 +44,152 @@ const clearCartItem = (cartItems, cartItemToClear) => {
 };
 
 export const CartContext = createContext({
-  isCartOpen: false,
-  setIsCartOpen: () => {},
-  cartItems: [],
-  addItemToCart: () => {},
-  removeItemFromCart: () => {},
-  clearItemFromCart: () => {},
-  cartCount: 0,
-  cartTotal: 0,
-  isMenuOpen: false,
-  setIsMenuOpen: () => {},
   closeOnWindowClick: () => {},
 });
 
+const CART_ACTIONS_TYPES = {
+  SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
+  SET_IS_MENU_OPEN: "SET_IS_MENU_OPEN",
+  CLOSE_CART_AND_NAVIGATE: "CLOSE_CART_AND_NAVIGATE",
+  CLOSE_MENU_AND_SIGN_OUT: "CLOSE_MENU_AND_SIGN_OUT",
+};
+
+const INITIAL_STATE = {
+  isCartOpen: false,
+  isMenuOpen: false,
+  cartCount: 0,
+  cartTotal: 0,
+  cartItems: [],
+};
+
+const cartReducer = (state = INITIAL_STATE, action = {}) => {
+  const { type, payload } = action;
+  switch (type) {
+    case CART_ACTIONS_TYPES.SET_CART_ITEMS:
+      return {
+        ...state,
+        ...payload,
+      };
+    case CART_ACTIONS_TYPES.SET_IS_CART_OPEN:
+      return {
+        ...state,
+        ...payload,
+      };
+    case CART_ACTIONS_TYPES.SET_IS_MENU_OPEN:
+      return {
+        ...state,
+        ...payload,
+      };
+    case CART_ACTIONS_TYPES.CLOSE_CART_AND_NAVIGATE:
+      return {
+        ...state,
+        isCartOpen: payload,
+      };
+    case CART_ACTIONS_TYPES.CLOSE_MENU_AND_SIGN_OUT:
+      return {
+        ...state,
+        isMenuOpen: payload,
+      };
+    default:
+      throw new Error(`unhandled type of ${type} in cartReducer`);
+  }
+};
+
 export const CartProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState(() => {
-    const cartItem = getItem("cartItems");
-    return cartItem || [];
-  });
-
-  useEffect(() => {
-    setItem("cartItems", cartItems);
-  }, [cartItems]);
-
-  let cartRef = useRef();
-  let menuRef = useRef();
-  let cartIconRef = useRef();
-
-  useEffect(() => {
-    let closeOnWindowClick = (e) => {
-      if (
-        !cartRef.current.contains(e.target) &&
-        !menuRef.current.contains(e.target) &&
-        !cartIconRef.current.contains(e.target)
-      ) {
-        setIsCartOpen(false);
-        setIsMenuOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", closeOnWindowClick);
-  });
-
-  const toggleIsCartOpen = () => {
-    setIsCartOpen(!isCartOpen);
-    setIsMenuOpen(false);
-  };
-
-  const toggleIsCartOpenAndNavigateToCheckout = (func) => {
-    setIsCartOpen(!isCartOpen);
-    func();
-  };
-
-  const toggleIsMenuOpen = () => {
-    setIsMenuOpen(!isMenuOpen);
-    setIsCartOpen(false);
-  };
-
-  const toggleIsMenuOpenAndSignOut = () => {
-    signOutUser();
-    setIsMenuOpen(!isMenuOpen);
-    setIsCartOpen(false);
-  };
-
-  useEffect(() => {
-    const newCartCount = cartItems.reduce(
-      (total, cartItem) => total + cartItem.quantity,
-      0
-    );
-    setCartCount(newCartCount);
-  }, [cartItems]);
-
-  useEffect(() => {
-    const newCartTotal = cartItems.reduce(
-      (total, cartItem) => total + cartItem.quantity * cartItem.price,
-      0
-    );
-    setCartTotal(newCartTotal);
-  }, [cartItems]);
+  const [
+    { cartItems, isCartOpen, cartCount, isMenuOpen, cartTotal },
+    dispatch,
+  ] = useReducer(cartReducer, INITIAL_STATE);
 
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd));
+    const newCartItems = addCartItem(cartItems, productToAdd);
+    updateCartItemsReducer(newCartItems);
   };
 
   const removeItemToCart = (cartItemToRemove) => {
-    setCartItems(removeCartItem(cartItems, cartItemToRemove));
+    const newCartItems = removeCartItem(cartItems, cartItemToRemove);
+    updateCartItemsReducer(newCartItems);
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    const newCartItems = clearCartItem(cartItems, cartItemToClear);
+    updateCartItemsReducer(newCartItems);
   };
+
+  const updateCartItemsReducer = (newCartItems) => {
+    const newCartCount = newCartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity,
+      0
+    );
+    const newCartTotal = newCartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity * cartItem.price,
+      0
+    );
+
+    dispatch({
+      type: CART_ACTIONS_TYPES.SET_CART_ITEMS,
+      payload: {
+        cartItems: newCartItems,
+        cartTotal: newCartTotal,
+        cartCount: newCartCount,
+      },
+    });
+  };
+
+  const setIsCartOpen = () => {
+    dispatch({
+      type: CART_ACTIONS_TYPES.SET_IS_CART_OPEN,
+      payload: { isCartOpen: !isCartOpen, isMenuOpen: false },
+    });
+  };
+
+  const setIsMenuOpen = () => {
+    dispatch({
+      type: CART_ACTIONS_TYPES.SET_IS_MENU_OPEN,
+      payload: { isMenuOpen: !isMenuOpen, isCartOpen: false },
+    });
+  };
+
+  const closeCartAndNavigate = (func) => {
+    dispatch({
+      type: CART_ACTIONS_TYPES.CLOSE_CART_AND_NAVIGATE,
+      payload: !isCartOpen,
+    });
+    func();
+  };
+
+  const closeMenuAndSignOut = () => {
+    dispatch({
+      type: CART_ACTIONS_TYPES.CLOSE_MENU_AND_SIGN_OUT,
+      payload: !isMenuOpen,
+    });
+    signOutUser();
+  };
+  // let cartRef = useRef();
+  // let menuRef = useRef();
+  // let cartIconRef = useRef();
+
+  // useEffect(() => {
+  //   let closeOnWindowClick = (e) => {
+  //     if (
+  //       !cartRef.current.contains(e.target) &&
+  //       !menuRef.current.contains(e.target) &&
+  //       !cartIconRef.current.contains(e.target)
+  //     ) {
+  //       setIsCartOpen(false);
+  //       setIsMenuOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", closeOnWindowClick);
+  // });
 
   const value = {
     isCartOpen,
-    toggleIsCartOpen,
-    toggleIsMenuOpen,
-    toggleIsCartOpenAndNavigateToCheckout,
-    toggleIsMenuOpenAndSignOut,
+    setIsCartOpen,
+    setIsMenuOpen,
+    closeCartAndNavigate,
+    closeMenuAndSignOut,
     addItemToCart,
     removeItemToCart,
     clearItemFromCart,
@@ -153,9 +197,9 @@ export const CartProvider = ({ children }) => {
     cartCount,
     cartTotal,
     isMenuOpen,
-    cartRef,
-    menuRef,
-    cartIconRef,
+    // cartRef,
+    // menuRef,
+    // cartIconRef,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

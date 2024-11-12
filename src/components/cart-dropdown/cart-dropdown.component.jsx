@@ -8,12 +8,8 @@ import CartItem from "../cart-item/cart-item.component";
 import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
-  const {
-    isCartOpen,
-    cartItems,
-    toggleIsCartOpenAndNavigateToCheckout,
-    cartRef,
-  } = useContext(CartContext);
+  const { isCartOpen, cartItems, closeCartAndNavigate, cartRef } =
+    useContext(CartContext);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
@@ -37,11 +33,7 @@ const CartDropdown = () => {
       ) : (
         <h3 className="empty-message">Your cart is empty</h3>
       )}
-      <button
-        onClick={() =>
-          toggleIsCartOpenAndNavigateToCheckout(goToCheckoutHandler)
-        }
-      >
+      <button onClick={() => closeCartAndNavigate(goToCheckoutHandler)}>
         GO TO CHECK OUT{" "}
       </button>
     </div>

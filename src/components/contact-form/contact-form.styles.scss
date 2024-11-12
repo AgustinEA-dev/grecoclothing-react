@@ -9,13 +9,13 @@ $main-color: black;
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(
-    rgba(52, 52, 52, 0.089),
-    rgba(16, 16, 16, 0.4)
-  ), url(../../../public/fondo-contact.jpg);
-  
+      rgba(52, 52, 52, 0.089),
+      rgba(16, 16, 16, 0.4)
+    ),
+    url(../../../public/fondo-contact.jpg);
 
   .form-title {
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
   }
 
@@ -23,9 +23,8 @@ $main-color: black;
     width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 35px;
     padding: 20px;
-    margin-bottom: 60px;
     background-color: white;
     border-radius: 20px;
     button {
@@ -36,19 +35,17 @@ $main-color: black;
   #message {
     background: none;
     background-color: white;
-
     padding: 10px;
     width: 100%;
     outline: none;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .contact-form-container {
     .form-title {
       font-size: 30px;
     }
-
     .contact-form {
       width: 90%;
     }

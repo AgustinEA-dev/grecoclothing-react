@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
+
 import { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
 
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { CartContext } from "../../contexts/cart.context";
 
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,7 @@ import "./menu-dropdown.styles.scss";
 
 const MenuDropdown = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { isMenuOpen, toggleIsMenuOpen, menuRef, toggleIsMenuOpenAndSignOut } =
+  const { isMenuOpen, setIsMenuOpen, menuRef, closeMenuAndSignOut } =
     useContext(CartContext);
 
   return (
@@ -21,29 +22,25 @@ const MenuDropdown = () => {
       }`}
     >
       <ul className="menu-links-container">
-        <Link onClick={toggleIsMenuOpen} className="menu-link" to="/about">
+        <Link onClick={setIsMenuOpen} className="menu-link" to="/about">
           About
         </Link>
-        <Link onClick={toggleIsMenuOpen} className="menu-link" to="/shop">
+        <Link onClick={setIsMenuOpen} className="menu-link" to="/shop">
           Products
         </Link>
-        <Link onClick={toggleIsMenuOpen} className="menu-link" to="/contact">
+        <Link onClick={setIsMenuOpen} className="menu-link" to="/contact">
           Contact
         </Link>
         {currentUser ? (
-          <Link
-            onClick={toggleIsMenuOpenAndSignOut}
-            className="menu-link"
-            to="/auth"
-          >
+          <Link onClick={closeMenuAndSignOut} className="menu-link" to="/auth">
             Sign Out
           </Link>
         ) : (
-          <Link onClick={toggleIsMenuOpen} className="menu-link" to="/auth">
+          <Link onClick={setIsMenuOpen} className="menu-link" to="/auth">
             Sign in
           </Link>
         )}
-        <Link onClick={toggleIsMenuOpen} className="nav-logo" to={"/"}>
+        <Link onClick={setIsMenuOpen} className="nav-logo" to={"/"}>
           <img className="logo-drop-menu" src="greco.png" alt="greco-logo" />
         </Link>
       </ul>

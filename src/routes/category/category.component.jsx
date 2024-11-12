@@ -35,7 +35,7 @@ const Category = () => {
           Back to categories
         </Link>
       </div>
-      <Toaster position="bottom-center" richColors />
+      <Toaster />
       <Footer />
     </>
   );

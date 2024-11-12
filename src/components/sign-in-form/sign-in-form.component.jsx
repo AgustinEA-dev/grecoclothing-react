@@ -8,7 +8,7 @@ import {
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 
 import "./sign-in-form.styles.scss";
 
@@ -90,7 +90,6 @@ const SignInForm = () => {
           </div>
         </form>
       </div>
-      <Toaster position="bottom-center" richColors />
     </>
   );
 };

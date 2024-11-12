@@ -6,9 +6,9 @@ import { ReactComponent as CloseIcon } from "../../assets/close-icon.svg";
 import "./close-icon.styles.scss";
 
 const Close = () => {
-  const { toggleIsMenuOpen } = useContext(CartContext);
+  const { setIsMenuOpen } = useContext(CartContext);
   return (
-    <div className="close-icon-container" onClick={toggleIsMenuOpen}>
+    <div className="close-icon-container" onClick={setIsMenuOpen}>
       <CloseIcon className="close-icon" />
     </div>
   );
